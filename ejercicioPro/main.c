@@ -4,9 +4,12 @@
 int PedirNota(void);
 float SacarPromedio(int suma, int cantidad);
 int AprobarMateria(int notaMinima, int nota);
+void EjercicioUno(void);
 int main()
 {
+    EjercicioUno();
 
+    /*
     int suma;
     int cantidad;
     float promedio;
@@ -28,10 +31,40 @@ int main()
     scanf("%d", &nota);
     notas = AprobarMateria(notaMinima, nota);
     printf("%d\n" ,notas);
+    */
+    return 0;
 
 }
+void EjercicioUno(void)
+{
+    int i;
+    int nota;
+    int acumuladorNotaAprobado = 0;
+    int contAprobados = 0;
+    int contDesaprobados = 0;
+    int acumuladorNotaDesaprobado = 0;
+    float promedioAprobadas;
+    float promedioDesaprobadas;
+    for (i = 0 ; i < 5 ; i++ ){
+        printf("Ingrese una nota: ");
+        scanf("%d", &nota);
+        if (nota >= 6){
+            contAprobados++;
+            acumuladorNotaAprobado = acumuladorNotaAprobado + nota;
+   }
+        if (nota < 6){
+            contDesaprobados++;
+            acumuladorNotaDesaprobado = acumuladorNotaDesaprobado + nota;
+        }
+   }
+   promedioAprobadas = (float)acumuladorNotaAprobado / contAprobados;
+   promedioDesaprobadas = (float)acumuladorNotaDesaprobado / contDesaprobados;
+   printf("La cantidad de alumnos aprobados es de: %d\n", contAprobados);
+   printf("El promedio de las notas aprobadas es de: %.2f\n", promedioAprobadas);
+   printf("El promedio de las notas desaprobas es de: %.2f\n", promedioDesaprobadas);
+}
 
-
+/*
 int PedirNota(void)
 {
     int nota;
@@ -58,3 +91,4 @@ int AprobarMateria(int notaMinima, int nota)
 
 
 }
+*/
